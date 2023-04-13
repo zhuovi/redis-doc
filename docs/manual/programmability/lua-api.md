@@ -624,7 +624,7 @@ Once Redis' replies are in RESP3 protocol, all of the [RESP2 to Lua conversion](
 * [RESP3 null](https://github.com/redis/redis-specifications/blob/master/protocol/RESP3.md#null-reply) -> Lua `nil`.
 * [RESP3 true reply](https://github.com/redis/redis-specifications/blob/master/protocol/RESP3.md#boolean-reply) -> Lua true boolean value.
 * [RESP3 false reply](https://github.com/redis/redis-specifications/blob/master/protocol/RESP3.md#boolean-reply) -> Lua false boolean value.
-* [RESP3 double reply](https://github.com/redis/redis-specifications/blob/master/protocol/RESP3.md#double-type) -> Lua table with a single _score_ field containing a Lua number representing the double value.
+* [RESP3 double reply](https://github.com/redis/redis-specifications/blob/master/protocol/RESP3.md#double-type) -> Lua table with a single _double_ field containing a Lua number representing the double value.
 * [RESP3 big number reply](https://github.com/redis/redis-specifications/blob/master/protocol/RESP3.md#big-number-type) -> Lua table with a single _big_number_ field containing a Lua string representing the big number value.
 * [Redis verbatim string reply](https://github.com/redis/redis-specifications/blob/master/protocol/RESP3.md#verbatim-string-type) -> Lua table with a single _verbatim_string_ field containing a Lua table with two fields, _string_ and _format_, representing the verbatim string and its format, respectively.
 
@@ -639,7 +639,7 @@ Although the default protocol for incoming client connections is RESP2, the scri
 
 * Lua Boolean -> [RESP3 Boolean reply](https://github.com/redis/redis-specifications/blob/master/protocol/RESP3.md#boolean-reply) (note that this is a change compared to the RESP2, in which returning a Boolean Lua `true` returned the number 1 to the Redis client, and returning a `false` used to return a `null`.
 * Lua table with a single _map_ field set to an associative Lua table -> [RESP3 map reply](https://github.com/redis/redis-specifications/blob/master/protocol/RESP3.md#map-type).
-* Lua table with a single _set field set to an associative Lua table -> [RESP3 set reply](https://github.com/redis/redis-specifications/blob/master/protocol/RESP3.md#set-type). Values can be set to anything and are discarded anyway.
+* Lua table with a single _set_ field set to an associative Lua table -> [RESP3 set reply](https://github.com/redis/redis-specifications/blob/master/protocol/RESP3.md#set-type). Values can be set to anything and are discarded anyway.
 * Lua table with a single _double_ field to an associative Lua table -> [RESP3 double reply](https://github.com/redis/redis-specifications/blob/master/protocol/RESP3.md#double-type).
 * Lua nil -> [RESP3 null](https://github.com/redis/redis-specifications/blob/master/protocol/RESP3.md#null-reply).
 
